@@ -1,0 +1,2 @@
+class Gameevent < ApplicationRecord
+end
