@@ -1,7 +1,39 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Country.destroy_all
+Game.destroy_all
+Gameevent.destroy_all
+Question.destroy_all
+Response.destroy_all
+Room.destroy_all
+Round.destroy_all
+User.destroy_all
+Vote.destroy_all
+
+Country.create([
+    {name: 'England', img_url: "https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/1200px-Flag_of_England.svg.png"},
+    {name: 'Wales', img_url: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Flag_of_Wales.svg"},
+    {name: 'Scotland', img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/2000px-Flag_of_Scotland.svg.png"}
+])
+
+Question.create([
+    {content: "What one word means sticky / the ability to form sticky lumps?", answer: "claggy", fake_answer: "lumptious", country: Country.first},
+    {content: "What one word is used to describe where Cows are kept?", answer: "Shippon", fake_answer: "Cowtel", country: Country.first},
+    {content: "What one word is used to describe an unpleasent taste?", answer: "Tawch", fake_answer: "Stawn", country: Country.second},
+    {content: "What one word is used to refer to a pair of trainers", answer: "Daps", fake_answer: "Nattys", country: Country.second},
+    {content: "What phrase means your talking rubbish?", answer: "Your bums out the window", fake_answer: "Shouting at the moon", country: Country.third},
+    {content: "What one word refers to a person who whines or complains alot?", answer: "Scunner", fake_answer: "Lart", country: Country.third}
+])
+
+Room.create()
+
+Game.create({room: Room.first, started:false})
+
+User.create([
+    {name: "Chris", game: Game.first, score: 0},
+    {name: "Joey", game: Game.first, score: 0},
+    {name: "Shane", game: Game.first, score: 0},
+    {name: "Matt", game: Game.first, score: 0}
+])
+
+Round.create({game: Game.first, question: Question.first})
+
+
