@@ -1,14 +1,12 @@
 class Room < ApplicationRecord
-    has_many :games
+    has_many :users
+    after_initialize :createUniqueCode, if: :new_record?
 
-    after_initialize do |room|
-        room.code = room.class.createUniqueCode
-    end
-
-    def self.createUniqueCode
-        roomCode = self.createCode
-        self.createUniqueCode if self.find_by(code: roomCode)
-        roomCode
+    def createUniqueCode
+        newCode = self.class.createCode
+        self.code = newCode
+        self.createUniqueCode if self.class.find_by(code: newCode) #overwrite if code used before
+        newCode
     end
 
     def self.createCode 
