@@ -1,5 +1,5 @@
 class Api::V1::RoomsController < ApplicationController
-    before_action :find_room, only: [:show]
+    before_action :find_room, only: [:show, :edit, :update]
 
     def index
         @rooms = Room.all
@@ -7,11 +7,16 @@ class Api::V1::RoomsController < ApplicationController
     end
 
     def show
-        if Room.find_by(id: @room.id)
+        render json: @room
+    end
+
+    def update
+        @room.update(room_params)
+        if @room.save
             render json: @room
-        else 
-            
-        end
+        else
+            render json: {error:"Room update failed"}, status: 400
+        end        
     end
 
     def create
@@ -21,8 +26,13 @@ class Api::V1::RoomsController < ApplicationController
 
     private
 
+    def room_params
+        params.require(:room).permit(:id, :code, :active)
+    end
+
     def find_room
-        @room = Room.find(params[:id])
+        @room = Room.find_by(id: params[:id])
+        render json: {error:"Room with id #{params[:id]} not found"}, status: 404 unless @room
     end
 
 end
