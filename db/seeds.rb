@@ -23,7 +23,7 @@ Question.create([
     {content: "What one word refers to a person who whines or complains alot?", answer: "Scunner", fake_answer: "Lart", country: Country.third}
 ])
 
-Room.create()
+Room.create
 
 Game.create({room: Room.first, started:false})
 
@@ -35,5 +35,3 @@ User.create([
 ])
 
 Round.create({game: Game.first, question: Question.first})
-
-
