@@ -1,5 +1,4 @@
 Country.destroy_all
-Game.destroy_all
 Gameevent.destroy_all
 Question.destroy_all
 Response.destroy_all
@@ -23,15 +22,13 @@ Question.create([
     {content: "What one word refers to a person who whines or complains alot?", answer: "Scunner", fake_answer: "Lart", country: Country.third}
 ])
 
-Room.create
-
-Game.create({room: Room.first, started:false})
+Room.create({active: true})
 
 User.create([
-    {name: "Chris", game: Game.first, score: 0},
-    {name: "Joey", game: Game.first, score: 0},
-    {name: "Shane", game: Game.first, score: 0},
-    {name: "Matt", game: Game.first, score: 0}
+    {name: "Chris", room: Room.first, score: 0},
+    {name: "Joey", room: Room.first, score: 0},
+    {name: "Shane", room: Room.first, score: 0},
+    {name: "Matt", room: Room.first, score: 0}
 ])
 
-Round.create({game: Game.first, question: Question.first})
+Round.create({room: Room.first, question: Question.first})

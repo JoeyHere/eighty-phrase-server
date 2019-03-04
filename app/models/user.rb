@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    belongs_to :game
+    belongs_to :room
     has_many :responses
     has_many :votes
 end
