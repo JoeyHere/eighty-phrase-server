@@ -23,12 +23,17 @@ Question.create([
 ])
 
 Room.create({active: true})
+Room.create({active: true})
 
 User.create([
     { name: "Chris", room: Room.first, score: 0, admin: true},
     {name: "Joey", room: Room.first, score: 0, admin: false},
     {name: "Shane", room: Room.first, score: 0, admin: false},
-    {name: "Matt", room: Room.first, score: 0, admin: false}
+    {name: "Matt", room: Room.first, score: 0, admin: false},
+    { name: "Minha", room: Room.first, score: 0, admin: false},
+    {name: "Song", room: Room.first, score: 0, admin: false},
+    { name: "Sam", room: Room.second, score: 0, admin: true},
+    {name: "Jake", room: Room.second, score: 0, admin: false}
 ])
 
 Round.create({room: Room.first, question: Question.first})
