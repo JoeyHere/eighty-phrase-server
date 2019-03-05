@@ -1,11 +1,12 @@
 class Api::V1::RoomsController < ApplicationController
     before_action :find_room, only: [:show, :edit, :update]
 
+    #return all rooms (used for testing only)
     def index
         @rooms = Room.all
         render json: @rooms
     end
-
+    
     def show
         render json: @room
     end
@@ -27,7 +28,7 @@ class Api::V1::RoomsController < ApplicationController
     private
 
     def room_params
-        params.require(:room).permit(:id, :code, :active)
+        params.require(:room).permit(:id, :code, :status)
     end
 
     def find_room

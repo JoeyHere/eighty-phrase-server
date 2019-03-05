@@ -1,4 +1,4 @@
 class Question < ApplicationRecord
-    belongs_to :round
+    has_many :rounds
     belongs_to :country
 end
