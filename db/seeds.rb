@@ -21,7 +21,7 @@ Question.create([
     {content: "What one native word is used to describe an unpleasent taste?", answer: "tawch", fake_answer: "stawn", country: Country.all[1]},
     {content: "What one native word is used to refer to a pair of trainers", answer: "daps", fake_answer: "nattys", country: Country.all[1]},
 #Scotland Questions
-    {content: "What phrase whjen translated to english, means your talking rubbish?", answer: "your bums out the window", fake_answer: "shouting at the moon", country: Country.all[2]},
+    {content: "What phrase when translated to english, means your talking rubbish?", answer: "your bums out the window", fake_answer: "shouting at the moon", country: Country.all[2]},
     {content: "What one word refers to a person who whines or complains alot?", answer: "scunner", fake_answer: "lart", country: Country.all[2]},
 #Italy Questions
     {content: "What phrase when translated to english, warns an opponent of an oncoming crushing defeat?", answer: "you will see green rats", fake_answer: "the pasta is dry", country: Country.all[3]},
