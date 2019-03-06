@@ -1,4 +1,6 @@
 class RoundSerializer < ActiveModel::Serializer
   belongs_to :question
-  attributes :id, :room_id, :status
+  has_many :responses
+
+  attributes :id, :room_id, :status, :responses
 end
