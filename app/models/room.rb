@@ -1,6 +1,7 @@
 class Room < ApplicationRecord
     has_many :users
     has_many :rounds
+    
     after_initialize :createUniqueCode, if: :new_record?
 
     # ensures after a room is created it assigns itself a uniq 4 letter code
@@ -9,6 +10,10 @@ class Room < ApplicationRecord
         self.code = newCode
         self.createUniqueCode if self.class.find_by(code: newCode) #overwrite if code used before
         newCode
+    end
+
+    def currentRound 
+        self.rounds.last
     end
 
     # creates a 4 letter code using capital letters
