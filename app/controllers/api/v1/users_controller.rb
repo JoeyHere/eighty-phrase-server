@@ -1,5 +1,6 @@
 class Api::V1::UsersController < ApplicationController
     before_action :find_room_by_code, only: [:create]
+    before_action :find_user, only: [:destroy]
     
     # ensure a room has space, it is open and if a player with the
     # same name is in the room append '1' to users name
@@ -19,7 +20,17 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
+    def destroy
+        User.destroy(@user.id)
+        render json: {success: "User with id #{@user.id} deleted"}, status: 200 if !User.find_by(id: @user.id)
+    end
+
     private
+
+    def find_user
+        @user = User.find_by(id: params[:id])
+        render json: {error:"User with ID: #{params[:id]} not found"}, status: 404 unless @user
+    end
 
     def find_room_by_code
         @room = Room.find_by(code: params[:code])
