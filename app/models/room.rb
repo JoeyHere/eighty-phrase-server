@@ -21,7 +21,7 @@ class Room < ApplicationRecord
     end
 
     def has_space?
-        users.length < 6
+        users.length < 5
     end
 
     def has_name_already?(user)
