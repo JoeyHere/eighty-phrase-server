@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_164853) do
+ActiveRecord::Schema.define(version: 2019_03_05_151354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,14 +18,6 @@ ActiveRecord::Schema.define(version: 2019_03_04_164853) do
   create_table "countries", force: :cascade do |t|
     t.string "name"
     t.string "img_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "gameevents", force: :cascade do |t|
-    t.string "name"
-    t.string "round_id"
-    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_164853) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "code"
-    t.boolean "active", default: true
+    t.string "status", default: "open"
   end
 
   create_table "rounds", force: :cascade do |t|
