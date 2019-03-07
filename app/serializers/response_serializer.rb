@@ -1,3 +1,4 @@
 class ResponseSerializer < ActiveModel::Serializer
-    attributes :user_id, :content, :kind
+    has_many :votes
+    attributes :id, :user_id, :content, :kind
 end
