@@ -18,7 +18,7 @@ class Api::V1::RoundsController < ApplicationController
 
     def create
         @round = Round.create(round_params)
-    Response.create([
+        Response.create([
            {user_id: 1, round_id: @round.id, content: @round.question.answer, kind: 'answer'},
            {user_id: 1, round_id: @round.id, content: @round.question.fake_answer, kind: 'fake'}])
         render json: @round
