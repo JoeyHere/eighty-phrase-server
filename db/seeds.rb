@@ -7,10 +7,10 @@ User.destroy_all
 Vote.destroy_all
 
 Country.create([
-    {name: 'England', img_url: "https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/1200px-Flag_of_England.svg.png"},
-    {name: 'Wales', img_url: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Flag_of_Wales.svg"},
-    {name: 'Scotland', img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/2000px-Flag_of_Scotland.svg.png"},
-    {name: 'Italy', img_url: "https://i.imgur.com/sW4qCQU.jpg"}
+    {name: 'England 🏴󠁧󠁢󠁥󠁮󠁧󠁿  ', img_url: "https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/1200px-Flag_of_England.svg.png"},
+    {name: 'Wales 🏴', img_url: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Flag_of_Wales.svg"},
+    {name: 'Scotla󠁧󠁢󠁷󠁬󠁳󠁿nd 🏴󠁧󠁢󠁳󠁣󠁴󠁿', img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/2000px-Flag_of_Scotland.svg.png"},
+    {name: 'Italy 🇮🇹', img_url: "https://i.imgur.com/sW4qCQU.jpg"}
 ])
 
 Question.create([
