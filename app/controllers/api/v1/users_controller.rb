@@ -19,6 +19,11 @@ class Api::V1::UsersController < ApplicationController
             render json: {error:"This room is not open and cannot be joined"}, status: 400 if @room.status != 'open'
         end
     end
+    
+    def update
+       @user.update(user_params)
+       render json: @user
+   end
 
     def destroy
         User.destroy(@user.id)
@@ -26,6 +31,10 @@ class Api::V1::UsersController < ApplicationController
     end
 
     private
+
+    def user_params
+       params.require(:user).permit(:id, :name, :score)
+    end
 
     def find_user
         @user = User.find_by(id: params[:id])
