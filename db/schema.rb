@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 2019_03_06_170413) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.boolean "admin", default: false
+    t.boolean "admin"
     t.string "name"
-    t.integer "score", default: 0
+    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "room_id"

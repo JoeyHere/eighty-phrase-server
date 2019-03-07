@@ -8,7 +8,7 @@ class Api::V1::ResponsesController < ApplicationController
     private
 
     def response_params
-        params.require(:response).permit(:user_id,:round_id,:content)
+        params.require(:response).permit(:user_id, :round_id, :content)
     end
 
 end
