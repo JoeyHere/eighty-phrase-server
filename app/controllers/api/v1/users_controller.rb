@@ -20,12 +20,21 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
+    def update
+        @user.update(user_params)
+        render json: @user
+    end
+
     def destroy
         User.destroy(@user.id)
         render json: {success: "User with id #{@user.id} deleted"}, status: 200 if !User.find_by(id: @user.id)
     end
 
     private
+
+    def user_params
+        params.require(:user).permit(:id, :name, :score)
+    end
 
     def find_user
         @user = User.find_by(id: params[:id])
