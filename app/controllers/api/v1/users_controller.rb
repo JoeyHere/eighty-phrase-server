@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
     before_action :find_room_by_code, only: [:create]
-    before_action :find_user, only: [:destroy]
+    before_action :find_user, only: [:destroy, :update]
     
     # ensure a room has space, it is open and if a player with the
     # same name is in the room append '1' to users name
