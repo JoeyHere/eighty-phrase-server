@@ -38,11 +38,7 @@ class Api::V1::UsersController < ApplicationController
     private
 
     def user_params
-<<<<<<< HEAD
        params.require(:user).permit(:id, :name, :score)
-=======
-        params.require(:user).permit(:id, :name, :score)
->>>>>>> a7ee7eed21d1dfd7d997ee62191bd0c4432c83fc
     end
 
     def find_user
