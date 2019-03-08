@@ -47,7 +47,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def find_room_by_code
-        @room = Room.find_by(code: params[:code])
-        render json: {error:"Room with Code: #{params[:code]} not found"}, status: 404 unless @room
+        @room = Room.find_by(code: params[:code].upcase)
+        render json: {error:"Room with Code: #{params[:code].upcase} not found"}, status: 404 unless @room
     end
 end
